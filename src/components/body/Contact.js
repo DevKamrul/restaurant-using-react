@@ -43,7 +43,7 @@ class Contact extends Component {
                                     <Input 
                                         type="text" 
                                         name="firstname" 
-                                        Placeholder="First Name" 
+                                        placeholder="First Name" 
                                         value={this.state.firstname}
                                         onChange={this.handleInputChange}
                                     />
@@ -55,7 +55,7 @@ class Contact extends Component {
                                     <Input 
                                         type="text" 
                                         name="lastname" 
-                                        Placeholder="Last Name" 
+                                        placeholder="Last Name" 
                                         value={this.state.lastname}
                                         onChange={this.handleInputChange}
                                     />
@@ -67,7 +67,7 @@ class Contact extends Component {
                                     <Input 
                                         type="tel" 
                                         name="telnum" 
-                                        Placeholder="Tel Num" 
+                                        placeholder="Tel Num" 
                                         value={this.state.telnum}
                                         onChange={this.handleInputChange}
                                     />
@@ -79,7 +79,7 @@ class Contact extends Component {
                                     <Input 
                                         type="email" 
                                         name="email" 
-                                        Placeholder="Email" 
+                                        placeholder="Email" 
                                         value={this.state.email}
                                         onChange={this.handleInputChange}
                                     />
@@ -116,7 +116,7 @@ class Contact extends Component {
                                     <Input 
                                         type="textarea" 
                                         name="message" 
-                                        Placeholder="Your Feedback" 
+                                        placeholder="Your Feedback" 
                                         value={this.state.message} 
                                         rows="12"
                                         onChange={this.handleInputChange}
