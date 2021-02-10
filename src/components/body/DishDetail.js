@@ -16,9 +16,11 @@ const DishDetail = (props) => {
                 <CardBody style={{ textAlign: "left" }}>
                     <CardTitle tag="h5">{props.dish.name}</CardTitle>
                     <CardSubtitle tag="h6" className="mb-2 text-muted">Category: {props.dish.category}</CardSubtitle>
-                    <CardText>
-                        <p>{props.dish.description}</p>
-                        <p><b>Price: {props.dish.price}/-</b></p>
+                <CardText>
+                        {props.dish.description}
+                </CardText>
+        <CardText>
+                        <b>Price: {props.dish.price}/-</b>
                     </CardText>
                     <hr />
                     <LoadComments dish={props.dish.comments} />

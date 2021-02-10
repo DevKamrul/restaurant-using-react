@@ -1,17 +1,27 @@
 import React, { Component } from 'react';
 import DISHES from '../../data/Dishes';
 import MenuItem from './MenuItem';
-import DishDetail from './DishDetail'
-
+import DishDetail from './DishDetail';
+import {CardColumns, Modal, ModalBody, ModalFooter, Button} from 'reactstrap'
 
 class Menu extends Component {
     state = {
         dishes: DISHES,
-        selectedDish: null
+        selectedDish: null,
+        modalOpen: false
     }
 
     onDishSelect = dish => {
-        this.setState({ selectedDish: dish });
+        this.setState({
+            selectedDish: dish,
+            modalOpen: !this.state.modalOpen
+        });
+    }
+
+    toggleModal = () => {
+        this.setState({
+            modalOpen: !this.state.modalOpen
+        })
     }
 
     render() {
@@ -20,24 +30,31 @@ class Menu extends Component {
                 <MenuItem
                     dish={item}
                     key={item.id}
-                    DishSelect={this.onDishSelect} />
+                    DishSelect={() => this.onDishSelect(item)}
+                />
             );
         })
 
-        let dishDetails = null;
+        let dishDetail = null;
         if (this.state.selectedDish != null) {
-            dishDetails = <DishDetail dish={this.state.selectedDish} />
+            dishDetail = <DishDetail dish={this.state.selectedDish} />
         }
-
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-6">
+                    <CardColumns>
                         {menu}
-                    </div>
-                    <div className="col-6">
-                        {dishDetails}
-                    </div>
+                    </CardColumns>
+                    <Modal isOpen={this.state.modalOpen} onClick={this.toggleModal}>
+                        <ModalBody>
+                            {dishDetail}
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button color="secondary" onClick={this.toggleModal}>
+                                Close
+                            </Button>
+                        </ModalFooter>
+                    </Modal>
                 </div>
             </div>
         );
